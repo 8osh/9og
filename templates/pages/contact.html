@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} {% load static %} {% block content %}
+<div class="container mt-5">
+  <div class="row">
+   {% include 'structure/admin_widget.html' %}
+      <div class="main-container">
+        <div class="d-flex justify-content-between">
+          <h4 class="h4-header mt-2 ml-4 d-flex justify-content-start">
+            root@0xGirl: İletişim
+          </h4>
+        </div>
+        <hr class="hr-style" />
+        {% include 'structure/contact.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

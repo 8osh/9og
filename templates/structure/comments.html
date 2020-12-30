@@ -1,0 +1,40 @@
+{% load static %}
+{% block content %}
+    <div class="content-style-main mt-2 main-container">
+        <div id="comments" class="sfrIconForm">
+            <div class="safirBox">
+                <div class="mainHeading">
+                    <div id="content" class="title ml-2">
+                        <i class="fa fa-comments" aria-hidden="true"></i> YORUMLAR - {{ post.comments.all | length}} YORUM 
+                    </div>
+                </div>
+                <div class="sfrCommentsList">
+                    <ol class="commentlist">
+                        {% if not post.comments.all %}
+                            <li class="comment">
+                                <div class="comment-body">
+                                    <p class="lead">Bu yazıya hiç yorum yapılmamış.</p>
+                                </div>
+                            </li>
+                        {% else %}
+                            {% for comment in post.comments.all %}
+                                <li class="comment">
+                                    <div class="comment-body">
+                                        <div class="comment-author">
+                                            <cite>{{ comment.name }}</cite>
+                                            <span class="says">dedi ki:</span>
+                                        </div>
+                                        <div class="comment-meta">
+                                            <a href="#"> {{ comment.created_on }}</a>
+                                        </div>
+                                        <p>{{ comment.content }}</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% load static %}
+{% block content %}
+
+{% for post in posts %}
+<div class="col-md-12 col-sm-12 col-md-6">
+  <div class="card-block card-custom text-light row no-gutters pb-4" style="height:auto!important;">
+    <div class="col- col col-xs-12">
+      <a href="{{ post.get_absolute_url }}"
+        ><h4 class="card-title pl-4"><u>{{post.title}}</u></h4></a
+      >
+      <div class="card-block px-4 pt-3">
+        <p class="card-text mt-5 pt-4">
+          {{post.content|truncatechars_html:300 | striptags | safe }}
+        </p>
+      </div>
+      <div class="card-top-custom">
+        <small
+          ><i class="fas fa-user-alt"></i> 0xGirl |
+          <i class="fas fa-calendar-alt"></i> 25.01.20 15:59</small
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}

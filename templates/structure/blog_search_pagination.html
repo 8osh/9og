@@ -1,0 +1,22 @@
+<hr>
+<nav>
+    <ul class="pagination pagination-custom justify-content-center">
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}&q={{ request.GET.q }}">Önceki</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <a class="page-link">#</a>
+            </li>
+        {% endif %}
+
+        <li class="page-item active"><a class="page-link">{{ page_obj.number }}/{{ page_obj.paginator.num_pages }}</a></li>
+
+        {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}&q={{ request.GET.q }}">Sonraki</a></li>
+        {% else %}
+            <li class="page-item disabled"><a class="page-link">#</a></li>
+        {% endif %}
+    </ul>
+</nav>

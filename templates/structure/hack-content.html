@@ -1,0 +1,25 @@
+{% load static %}
+
+{% for post in posts  %}
+<div class="col-md-6 col-sm-12 col-md-6">
+  <div class="card-block card-custom text-light row no-gutters" style="height:auto!important;">
+    <div class="col- col col-xs-12 ">
+      <a href="{{ post.get_absolute_url }}"
+        ><h4 class="card-title"><u>{{post.title}}</u></h4></a
+      >
+      <div class="card-block px-2 p-2">
+        <p class="card-text mt-5 pt-4">
+          {{post.content|truncatechars_html:300 | striptags | safe  }}
+        </p>
+      </div>
+      <div class="card-block text-right footer-inside p-2">
+        <a href="{{ post.get_absolute_url }}" class="text-danger">Devamını Oku...</a>
+      </div>
+      <div class="card-top-custom">
+      <small><i class="fas fa-user-alt"></i> {{post.user}} | 
+      <i class="fas fa-calendar-alt"></i> {{post.edited_on}}</small>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}

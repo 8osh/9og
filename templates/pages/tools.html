@@ -1,0 +1,21 @@
+{% extends 'layout.html' %} {% load static %} {% block content %}
+<div class="container-fluid mt-5">
+  <div class="row">
+   {% include 'structure/admin_widget.html' %}
+      <div class="main-container">
+        <div class="d-flex justify-content-between">
+          <h4 class="h4-header mt-2 ml-4 d-flex justify-content-start">
+            root@0xGirl: Araçlar
+          </h4>
+          <div>
+            {% include 'structure/search.html'%}
+          </div>
+        </div>
+        <hr class="hr-style" />
+        <div class="card-deck">{% include 'structure/tools-content.html' %}</div>
+        {% if posts.has_other_pages %}{% include 'structure/blog_search_pagination.html'%}{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% if category_posts%}
+    <div class="d-flex top-title-style-categories pl-4 p-2 pt-3" style="margin-bottom:20px; border-bottom:3px solid #e617c3">
+        <h5 class="text-light"><i class="fa fa-list-alt" aria-hidden="true"></i> {{cats_title}}</h5>  
+         &nbsp; 
+        <small class="pt-1 pr-2 text-light">
+            | {{category_posts.count}} makale
+        </small>
+    </div>
+    {% for category in category_posts%}
+    <div class="card mb-3 bg-transparent text-light">
+        <div class="card-horizontal">
+            <div class="card-body">
+                <h4 class="card-title"><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></h4>
+                <p class="card-text">{{category.content|truncatechars_html:200 | striptags | safe  }}...</p>
+                <a href="{{ category.get_absolute_url }}" class="float-right">Okumaya devam et...</a>
+            </div>
+        </div>
+        <div class="card-footer text-right d-flex justify-content-between ribbon">
+            <small class="text-light"><a href="{% url 'post:category' category.category|slugify %}" class="text-light">{{ category.category }}</a></small>
+            <small class="text-light">{{ category.created_on | timesince }} önce | {{ category.user }}</small>
+        </div>
+    </div>
+    <hr class="hrtag">
+    {% endfor %}
+    {% else %}
+    <div class="p-5 content-style-no-padding">
+        <p class="p-3 text-light">
+            <b>"{{ cats_title}}"</b> isimli kategori <u>yok</u> ya da kategoride <u>makale bulunamadı!</u> Tekrar deneyin veya <b><a href="{% url 'post:post_index' %}">Blog</a></b> 'a geri dönün!
+        </p>
+    </div> 
+{% endif %}

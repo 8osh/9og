@@ -1,0 +1,14 @@
+{% if request.user.is_authenticated %}
+            <div class="col-md-12 mt-5 pt-4">
+                <div class="d-flex blog-mini-admin-widget pl-4 p-2 pt-3 pb-3 text-dark">
+                    <div class="col-md-12 justify-content-end">
+                        <h6>Hızlı İşlemler</h6>
+                        <a href="{% url 'post:post_create' %}" class="btn btn-xs btn-secondary">Yeni Gönderi Ekle</a>
+                        <a href="{% url 'admin:index' %}" class="btn btn-xs btn-secondary" style="float:right;">Yönetim Paneli</a>
+                    </div>
+                 </div>
+            </div>
+            <div class="col-md-12 ">
+            {% else %}
+            <div class="col-md-12 content">
+            {% endif %}

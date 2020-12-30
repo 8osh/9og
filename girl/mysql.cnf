@@ -1,0 +1,5 @@
+[client]
+database = girl
+user = capture0x
+password = 0105001
+default-character-set = utf8mb4

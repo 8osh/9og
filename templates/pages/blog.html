@@ -1,0 +1,21 @@
+{% extends 'layout.html' %} 
+{% load static %}
+{% block content %} 
+    <div class="container-fluid mt-5">
+        <div class="row">
+            {% include 'structure/admin_widget.html' %}
+                {% if messages %}
+                    {% include 'structure/messages.html' %}
+                {% endif %}
+                <div class="main-container">
+                    <h4 class="h4-header mt-2 ml-4">root@0xGirl: Son Konular</h4>
+                    <hr class="hr-style" />
+                    <div class="card-deck">
+                        {% include 'structure/homepage-content.html' %}
+                    </div>
+                        {% if posts.has_other_pages %}{% include 'structure/blog_search_pagination.html'%}{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

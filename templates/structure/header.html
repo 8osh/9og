@@ -1,0 +1,24 @@
+{% load static %}
+{% block content %}
+<header>
+   <nav class="navbar  navbar-expand-lg  navbar-custom fixed-top ">
+      <div class="d-flex justify-content-start text-light">
+         <img src="{% static 'images/logo.png' %}" id="logo" alt="">
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <i class="fa fa-list-alt text-light" aria-hidden="true"></i>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+         <ul class="navbar-nav">
+            <div class="d-flex justify-content-end">
+               <a href="{% url 'post:post_index' %}">Ana Sayfa</a>
+               <a href="{% url 'post:hack_index' %}">Hack</a>
+               <a href="{% url 'post:tools_index' %}">Araçlar</a>
+               <a href="{% url 'post:psychology_index' %}">PSİKOLOJİ</a>
+               <a href="{% url 'post:contact' %}">İLETİŞİM</a>
+            <div>
+         </ul>
+      </div>
+   </nav>
+</header>
+{% endblock %}

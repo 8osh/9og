@@ -1,0 +1,25 @@
+{% load static %} {% for post in posts %}
+<div class="col-md-2">
+  <div class="card-block card-custom text-light">
+    {% if post.thumbnail %}
+      <a href="{{ post.get_absolute_url }}"><h5 class="card-title">{{post.title|truncatechars_html:55}}</h5></a>
+      <a href="{{ post.get_absolute_url }}"
+        ><img
+          class="card-img-top img-responsive"
+          src="{{ post.thumbnail.url }}"
+          alt="Card image cap"
+      /></a>
+    {% else %}
+       <a href="{{ post.get_absolute_url }}"><h5 class="card-title" style="position:relative; margin-bottom:0px; padding-bottom:0px">{{post.title|truncatechars_html:50}}</h5></a>
+    {% endif %}
+    <div class="card-body">
+      <p class="card-text">
+        {{post.content|truncatechars_html:123 | striptags | safe  }}
+      </p>
+    </div>
+    <div class="card-button">
+      <a href="{{ post.get_absolute_url }}" class="btn d-flex w-100">>> Devamı Oku..</a>
+    </div>
+  </div>
+</div>
+{% endfor %}

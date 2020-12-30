@@ -1,0 +1,13 @@
+{% load static %}
+<script src="{% static 'js/cute-alert.js' %}"></script>
+{% if messages %}
+    {% for message in messages %}
+        <script>
+            cuteToast({
+                type    : "{{message.tags}}",
+                message : "{{message}}",
+                timer   : 5000,
+            });
+        </script>
+    {% endfor %}
+{% endif %}

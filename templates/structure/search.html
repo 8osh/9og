@@ -1,0 +1,9 @@
+<form method="GET" action="{% url 'post:search' %}">
+  <input
+    type="text"
+    name="q"
+    class="search-hover"
+    value="{{ request.GET.q }}"
+    placeholder="sitede arama yapın..."
+  />
+</form>

@@ -1,0 +1,24 @@
+<div class="d-flex pl-4 p-2 pt-3 pb-3 text-light" style="margin-bottom:20px; border-bottom:3px solid #e617c3">
+        <b ><i class="fa fa-tag" aria-hidden="true"></i> "{{tag}}"</b>  
+         &nbsp; 
+        <small class="pt-1 pr-2">
+            etiketinde <b>{{tag_posts.count}}</b> makale bulundu.
+        </small>
+    </div>
+{% for post in tag_posts %}
+        <div class="card mb-3 bg-transparent text-light">
+            <div class="card-horizontal">
+                <!--http://via.placeholder.com/300x180-->
+                <div class="card-body">
+                    <h4 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                    <p class="card-text">{{post.content|truncatechars_html:200 | striptags | safe  }}...</p>
+                    <a href="{{ post.get_absolute_url }}" class="float-right mb-3">Okumaya devam et...</a>
+                </div>
+            </div>
+            <div class="card-footer text-right d-flex justify-content-between ribbon">
+                <small class="text-light"><a href="{% url 'post:category' post.category|slugify %}" class="text-light"><i class="fa fa-list-alt" aria-hidden="true"></i> {{ post.category }}</a></small>
+                <small class="text-light">{{ post.created_on | timesince }} önce | {{ post.user }}</small>
+            </div>
+        </div>
+        <hr class="hrtag">
+   {% endfor %}

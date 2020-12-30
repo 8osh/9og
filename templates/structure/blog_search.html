@@ -1,0 +1,16 @@
+<div class="search">
+    <div class="top-title">
+        <form method="GET" action="{% url 'post:search' %}">
+            <div id="search-input"style="padding:0px; margin:0px;">
+                <div class="input-group col-lg-12 input-custom-blog" style="background-color:#fff;">
+                    <input type="text" name="q" class="form-control input-lg" placeholder="Başlık-içerik-yazar adıyla arayın...  " value="{{ request.GET.q }}" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+{% load static %}
+{% for post in posts  %}
+<div class="col-md-6 col-sm-12 col-lg-3">
+  <div class="card card-custom-tools bg-dark text-white" style="height:auto!important;">
+    <a href="{{ post.get_absolute_url }}"><img class="card-img" src="{{ post.thumbnail.url }}" alt="Card image" /></a>
+    <h3 class="p-0 card-title card-img-overlay"><a href="{{ post.get_absolute_url }}">{{post.title}}</a></h3>
+    <p class="card-text p-3">
+      {{post.content|truncatechars_html:130 | striptags | safe  }}
+    </p>
+    <div class="card-footer text-right">
+      <small>{{post.edited_on}}</small>
+    </div>
+  </div>
+</div>
+{% endfor %}
